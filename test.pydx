@@ -1,0 +1,5 @@
+import "test.h"
+
+fn test() begin
+print "TEST\n" endl;
+end

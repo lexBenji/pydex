@@ -1,0 +1,6 @@
+ifdef TEST_H
+def TEST_H
+
+fn test();
+
+end

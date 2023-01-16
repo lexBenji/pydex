@@ -1,0 +1,6 @@
+import "test.h"
+
+main() begin
+print "hello world\n" endl;
+test();
+end
