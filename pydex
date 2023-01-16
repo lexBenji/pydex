@@ -11,18 +11,6 @@ if not os.path.isfile(argv[1]):
     print('ERROR: FILE NOT FOUND')
     exit(1)
 
-outf = ''
-
-if len(argv) < 3:
-    pass
-else:
-    if not argv[2].endswith('.c'):
-        if '.\*' in argv[2]:
-            outf = argv[2].replace('.\*','.c')
-        else: outf = argv[2]+'.c'
-    else:
-        outf = argv[2]
-
 # HEADER
 if argv[1].endswith('.pydh'):
     with open(argv[1],'r') as rf:
@@ -46,7 +34,7 @@ if argv[1].endswith('.pydh'):
 else: 
     with open(argv[1],'r') as rf:
         rf = rf.readlines()
-        with open(outf,'w') as wf:
+        with open(argv[1].replace('.pydx','.c'),'w') as wf:
             wf.write('#include <stdio.h>\n')
             for i in rf:
                 for w in i.split():
@@ -70,6 +58,8 @@ else:
                         wf.write(');')
                     elif w == 'ret':
                         wf.write('return ')
+                    elif w == 'string':
+                        wf.write('char *')
                     elif w == 'fn':
                         wf.write('void ')
                     else:
