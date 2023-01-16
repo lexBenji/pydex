@@ -43,7 +43,7 @@ else:
                 for w in i.split():
                     if w == 'main()':
                         wf.write('int main() ')
-                    elif w == 'load':
+                    elif w == 'import':
                         wf.write('#include ')
                     elif w == 'begin':
                         wf.write('{')
