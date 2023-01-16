@@ -3,4 +3,8 @@ def TEST_H
 
 fn test();
 
+int add(int a,int b);
+
+int num();
+
 end

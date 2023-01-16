@@ -3,4 +3,8 @@ import "test.h"
 main() begin
 print "hello world\n" endl;
 test();
+int i = add(10,5);
+int j = num();
+print "%d\n",i endl;
+print "%d\n",j endl;
 end

@@ -41,3 +41,11 @@ to compile to a C file
 ./pydex FILE.pydh
 ```
 to compiler to C header file.
+
+# TYPES
+
+the types `char`,`int` and `float` are supported, `bool` isn't supported.
+
+# ISSUES
+
+if you have a bug or a new thing you want me to code into the language, you can go to the [issue page](https://github.com/lexBenji/pydex/issues)

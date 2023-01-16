@@ -3,3 +3,12 @@ import "test.h"
 fn test() begin
 print "TEST\n" endl;
 end
+
+int add(int a,int b) begin
+int c = a + b;
+ret c;
+end
+
+int num() begin
+ret 10;
+end
