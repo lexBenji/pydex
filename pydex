@@ -16,10 +16,10 @@ if len(argv) < 3:
 else:
     outf = argv[2]
 
-if argv[1].endswith('.pdxh'):
+if argv[1].endswith('.pydh'):
     with open(argv[1],'r') as rf:
         rf = rf.readlines()
-        hf = argv[1].replace('.pdxh','.h')
+        hf = argv[1].replace('.pydh','.h')
         with open(hf,'w') as h:
             for i in rf:
                 for w in i.split():
@@ -37,7 +37,8 @@ if argv[1].endswith('.pdxh'):
 else: 
     with open(argv[1],'r') as rf:
         rf = rf.readlines()
-        with open(argv[1].replace('.pdx','.c'),'w') as wf:
+        with open(argv[1].replace('.pydx','.c'),'w') as wf:
+            wf.write('#include <stdio.h>\n')
             for i in rf:
                 for w in i.split():
                     if w == 'main()':

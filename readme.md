@@ -10,10 +10,9 @@ and paste it to your terminal
 # SYNTAX
 
 ```pydx
-load <stdio.h>
-
 main() begin
-print "hello world\n" endl
+print "hello world\n" endl;
 end
 ```
-to print **hello world**.
+to print **hello world**.<br>
+semi-colon is required at the end of each line.
