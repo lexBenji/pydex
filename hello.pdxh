@@ -1,0 +1,10 @@
+ifdef HELLO
+def HELLO
+
+fn hello();
+
+fn bye();
+
+fn gender(char gen[]);
+
+end

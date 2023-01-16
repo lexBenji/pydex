@@ -1,0 +1,67 @@
+#!/usr/bin/python
+
+from sys import argv
+import os
+
+if len(argv) < 2:
+    print('ERROR: NOT ENOUGHT ARGUMENT')
+    exit(1)
+
+if not os.path.isfile(argv[1]):
+    print('ERROR: FILE NOT FOUND')
+    exit(1)
+
+if len(argv) < 3:
+    pass
+else:
+    outf = argv[2]
+
+if argv[1].endswith('.pdxh'):
+    with open(argv[1],'r') as rf:
+        rf = rf.readlines()
+        hf = argv[1].replace('.pdxh','.h')
+        with open(hf,'w') as h:
+            for i in rf:
+                for w in i.split():
+                    if w == 'ifdef':
+                        h.write('#ifndef ')
+                    elif w == 'def':
+                        h.write('#define ')
+                    elif w == 'fn':
+                        h.write('void ')
+                    elif w == 'end':
+                        h.write('#endif')
+                    else:
+                        h.write(w+' ')
+                h.write('\n')
+else: 
+    with open(argv[1],'r') as rf:
+        rf = rf.readlines()
+        with open(argv[1].replace('.pdx','.c'),'w') as wf:
+            for i in rf:
+                for w in i.split():
+                    if w == 'main()':
+                        wf.write('int main() ')
+                    elif w == 'load':
+                        wf.write('#include ')
+                    elif w == 'begin':
+                        wf.write('{')
+                    elif w == 'cmt':
+                        wf.write('/* ')
+                    elif w == 'scmt':
+                        wf.write('// ')
+                    elif w == 'endc':
+                        wf.write('*/')
+                    elif w == 'end':
+                        wf.write('}')
+                    elif w == 'print':
+                        wf.write('printf(')
+                    elif w == 'endl;':
+                        wf.write(');')
+                    elif w == 'ret':
+                        wf.write('return ')
+                    elif w == 'fn':
+                        wf.write('void ')
+                    else:
+                        wf.write(w+' ')
+                wf.write('\n')

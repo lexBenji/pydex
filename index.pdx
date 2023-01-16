@@ -1,0 +1,8 @@
+load "hello.h"
+
+main()
+begin
+hello();
+bye();
+gender("bisexual");
+end
